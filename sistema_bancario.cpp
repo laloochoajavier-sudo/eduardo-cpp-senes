@@ -28,7 +28,7 @@ int main(){
     case 2:
         saldo += deposito(saldo);
         MostrarSaldo(saldo);
-        break;
+        break; 
     case 3:
         saldo -= retirar(saldo);
         MostrarSaldo(saldo);
