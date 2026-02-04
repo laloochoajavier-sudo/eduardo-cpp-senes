@@ -9,6 +9,8 @@ int main(){
 
    std::string Ncompleto = concatenarCadenas(nombre,apellido);
 
+   std::cout<<"hola "<<Ncompleto;
+
     return 0;
 }
 std::string concatenarCadenas (std::string string1,std::string string2){
