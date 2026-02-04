@@ -3,7 +3,7 @@
 #include <iomanip>
 
 void MostrarSaldo( double saldo );
-double deposito ();
+double deposito (double saldo);
 double retirar (double saldo);
 
 int main(){
@@ -26,8 +26,8 @@ int main(){
         MostrarSaldo(saldo);
         break;
     case 2:
-        saldo += deposito();
-        
+        saldo += deposito(saldo);
+        MostrarSaldo(saldo);
         break;
     case 3:
         saldo -= retirar(saldo);
@@ -49,21 +49,32 @@ void MostrarSaldo( double saldo ){
     std::cout<<"su balance es $: "<<std::setprecision (2) <<std::fixed<< saldo<<'\n';
 }
 
-double deposito (){
+double deposito (double saldo){
     double monto;
     
-    std::cout<<"ingrese el monto a depositar (el maximo son 10 mil pesos): ";
+    std::cout<<"ingrese el monto a depositar: ";
     std::cin>>monto;
 
-    
-    return 0;
-
-    
+    if(monto >0){
+        return monto;
+    }else {
+        return 0;
+    }
 
 }
-
-
+void MostrarSaldo( double saldo );
+double deposito (double saldo);
 double retirar (double saldo){
+    double monto  = 0;
+    std::cout<<"ingrese el monto a retirar: \n";
+    std::cin>>monto;
+    if(monto > saldo){
+        std::cout<<"saldo insuficiente!\n";
+    }
+    else if(monto < 0){
+        std::cout<<"esa no es una cantidad valida! \n";
+        return monto;
+    }
     return 0;
 }
 
