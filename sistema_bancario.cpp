@@ -75,10 +75,7 @@ double deposito (double saldo){
     }else {
         return 0;
     }
-
 }
-void MostrarSaldo( double saldo );
-double deposito (double saldo);
 double retirar (double saldo){
     double monto  = 0;
     std::cout<<"ingrese el monto a retirar: \n";
