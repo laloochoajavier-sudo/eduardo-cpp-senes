@@ -5,7 +5,7 @@ double depositar(double saldo);
 double retirar(double saldo);
 double donacion(double saldo);
 int main(){
-    double saldo = 0;
+    double saldo = 100;
     int opc = 0;
     
     std::cout<<"_____________________\n";
@@ -49,36 +49,53 @@ int main(){
 }
 void mostrarSaldo(double saldo){
     double caridad;
-    std::cout<<"su saldo es de "<< saldo<<'\n';
-    std::cout<<"desea donar algo ala caridad (eliga la cantidad)\n";
-    std::cin>>caridad;
-    
-    if(caridad <0){
-    std::cout<<"Gracias,tacano(entonces para la proxima)\n";
-    }
-    else if(caridad >=1)
-    std::cout<<"gracias por su donacion SR.\n";
-    else{
-    std::cout<<"intente otra cantidad";
-    }
+    std::cout<<"su saldo es de "<< saldo <<'\n';
     }
 
 double depositar(double saldo){
     double monto;
     std::cout<<"introduce el monto a depositar\n";
     std::cin>>monto;
-    std::cout<<"desea donar algo ala caridad";
     if(monto >0){
     return monto;
     }
     else{
+    std::cout<<"monto incorrecto!\n";
     return 0;
     }
     
 }
 double retirar(double saldo){
-return 0;
+    double retiro;
+    std::cout<<"Seleccione el monto que desea retirar ";
+    std::cin>>retiro;
+    if(retiro > saldo){
+    std::cout<<"saldo insuficiente\n";
+    }
+    else if(retiro < 0){
+        std::cout<<"esa es una cantidad no valida\n";
+    }
+return retiro;
 }
 double donacion(double saldo){
+    double caridad;
+    std::cout<<"desea donar algo ala caridad (eliga la cantidad)\n";
+    std::cin>>caridad;
+    
+    if(caridad >saldo){
+    std::cout<<" Saldo insuficiente";
+
+    }
+    else if(caridad >=1){
+    std::cout<<"gracias por su donacion SR.\n";
+    saldo - caridad;
+    }
+    if(caridad <=0){
+    std::cout<<"\n Gracias,tacano(entonces para la proxima)\n";
+    }
+
+    else if (caridad <-1){
+    std::cout<<"intente otra cantidad";
+    }
 return 0;
 }
