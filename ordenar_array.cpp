@@ -29,6 +29,8 @@ void ordenador (int arreglo[], int tam){
     //el menos uno es para no salirnos del arreglo
     for (int i = 0; i < tam - 1; i++) {
         for (int j = 0; j < tam - i - 1; j++) {
+             //si quiero hacerlo de mayor a menor, solo cambio el signo de mayor a menor<>
+                         /* */       
             if (arreglo[j] > arreglo[j + 1]) {
                 temp = arreglo[j];
                 arreglo[j] = arreglo[j + 1];
