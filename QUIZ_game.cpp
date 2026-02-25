@@ -37,7 +37,7 @@ for(int i = 0;i <tamaño; i++){
 
 }
 std::cout<<"**************************"<<'\n';
-std::cout<<"tu puntaje es: "<<puntaje<<'\n';
-std::cout<<"**************************"<<'\n';
+std::cout<<puntaje<<'\n';
+std::cout<<"tu puntaje es: "<<"**************************"<<'\n';
     return 0;
 }
