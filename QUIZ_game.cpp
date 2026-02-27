@@ -33,11 +33,16 @@ for(int i = 0;i <tamaño; i++){
         puntaje++;
     }else{
         std::cout<<"respuesta incorrecta! :("<<'\n';
+        std::cout<<"respuesta correcta "<<respuestasCorrectas[i]<<'\n';
     }
 
 }
 std::cout<<"**************************"<<'\n';
-std::cout<<puntaje<<'\n';
-std::cout<<"tu puntaje es: "<<"**************************"<<'\n';
+std::cout<<"*       RESULTADO        *"<<'\n';
+std::cout<<"**************************"<<'\n';
+std::cout<<"PREGUNTAS "<<tamaño<<'\n';
+std::cout<<"RESPUESTAS CORRECTAS: "<<puntaje<<'\n';
+//aqui dividi para hacerlo porcentaja con la funcion double
+std::cout<<"PUNTAJE: "<<(puntaje/(double)tamaño)*100 <<"%";
     return 0;
 }
