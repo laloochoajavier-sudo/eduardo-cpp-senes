@@ -83,44 +83,29 @@ void turnoComputadora(char*espacios,char computadora){
         }
     }
 }
-bool verificarGanador(char*espacios,char jugador,char computadora){
-    if((espacios[0] != ' ') && (espacios[0]== espacios[1])&&(espacios[1] == espacios[2])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }
+bool verificarGanador(char* espacios, char jugador, char /*computadora*/){
+    static const int lineas[8][3] = {
+        {0,1,2}, {3,4,5}, {6,7,8}, // filas
+        {0,3,6}, {1,4,7}, {2,5,8}, // columnas
+        {0,4,8}, {2,4,6}           // diagonales
+    };
 
-    else if((espacios[3] != ' ') && (espacios[3]== espacios[4])&&(espacios[4] == espacios[5])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }
-     else if((espacios[6] != ' ') && (espacios[6]== espacios[7])&&(espacios[7] == espacios[8])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }
-     else if((espacios[0] != ' ') && (espacios[0]== espacios[3])&&(espacios[3] == espacios[6])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }
-     else if((espacios[1] != ' ') && (espacios[1]== espacios[4])&&(espacios[4] == espacios[7])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }
-     else if((espacios[2] != ' ') && (espacios[2]== espacios[5])&&(espacios[5] == espacios[8])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }
-     else if((espacios[0] != ' ') && (espacios[0]== espacios[4])&&(espacios[4] == espacios[8])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }
-     else if((espacios[2] != ' ') && (espacios[2]== espacios[4])&&(espacios[4] == espacios[6])){
-        espacios[0] == jugador ? std::cout<<"ganaste\n" : std::cout<<"Perdiste\n";
-    }else{
-        return false;
-    }
-
-
-    return true;
-}
-bool verificarEmpate(char *espacios){
-    for(int i = 0; i <9; i++){
-        if(espacios[i] == ' ' ){
-            return false;
+    for (const auto& l : lineas) {
+        char a = espacios[l[0]];
+        if (a != ' ' && a == espacios[l[1]] && a == espacios[l[2]]) {
+            std::cout << (a == jugador ? "ganaste\n" : "Perdiste\n");
+            return true;
         }
     }
+    return false;
 
-    return true;
+}
+bool verificarEmpate(char *espacios){
+    // Empate si no quedan espacios vacíos
+    for (int i = 0; i < 9; ++i) {
+        if (espacios[i] == ' ') {
+            return false; // Aún hay jugadas disponibles
+        }
+    }
+    return true; // Tablero lleno
 }
