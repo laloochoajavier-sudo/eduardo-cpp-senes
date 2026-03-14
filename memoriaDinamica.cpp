@@ -21,6 +21,7 @@ void capturarNotas();       // usa g_prompts y llena g_notas
 void imprimirNotas();       // imprime g_notas
 void liberarArrays();       // delete[] g_notas y g_prompts
 
+#ifndef UNIT_TEST
 int main(){
     // 1) Leer g_tam (solo numerico y positivo)
     g_tam = leerEnteroPositivo("cuantas notas almacenara? ");
@@ -42,6 +43,7 @@ int main(){
     std::cout<<"gracias por usar este codigo"<<'\n';
     return 0;
 }
+#endif // UNIT_TEST
 
 // === Implementaciones "abajo" ===
 
