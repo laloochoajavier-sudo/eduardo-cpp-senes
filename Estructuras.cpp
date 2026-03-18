@@ -6,6 +6,7 @@
 #include <algorithm>
 
 using namespace std;
+//use ia para el sistema complejo la idea principal la hice yo
 
 struct Alumno {
     string nombre;
